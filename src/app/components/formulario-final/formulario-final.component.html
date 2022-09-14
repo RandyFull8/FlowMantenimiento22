@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+
+<div class="fexconte d-flex flex-row mb-3">
+  <div  class="titulo p-2"><i class="fa-solid fa-angles-right"></i>Revisión final<i class="fa-solid fa-angles-left"></i></div>
+  <div id="current_date" class="p-2"></div>
+  <div id="HoraActual" class="p-2"></div>
+</div>
+
+  <div class="container">
+<h6  class="left"></h6>
+<h6   class="right"></h6>
+</div>
+<nav></nav>
+<form class="rounded mb-0 m-4 p-4 needs-validation novalidate">
+    <div class=" d-flex flex-row mb-3">
+        <div  class="tocken p-2">No.114</div>
+        <div  class="p-2">/</div>
+        <div  class="p-2">Mecánico: Persona</div>
+       
+      </div>
+<hr>
+    <label for="basic-url" class="form-label"><b>¿Trabajo sanitizado?</b></label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          No
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Si
+        </label>
+      </div>
+<hr>
+
+<label for="basic-url" class="form-label"><b>Estatus de la actividad:</b></label>
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="FR">
+    <label class="form-check-label" for="flexCheckDefault">
+        Falta de refacción(Trabajo Temporal)
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="RHYR" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Recoger herramientas y refacciones
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="cancelado" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Cancelado
+    </label>
+  </div>
+
+  
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="terminado" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Terminado
+    </label>
+  </div>
+<br>
+      <div class="d-grid gap-2">
+        <button
+          type="submit"
+          class="btnenvia btn btn-primary btn.lg"
+        >
+        <i class="fa-solid fa-circle-check"></i>
+          Confirmar
+        </button>
+        <br />
+      </div>
+</form>

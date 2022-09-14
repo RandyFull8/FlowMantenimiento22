@@ -1,0 +1,25 @@
+.top{
+    margin-top: 42px;
+}
+
+.container{
+    text-align:center
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.center{
+    background:green;
+   display:inline-block
+}
+.fexconte{
+    background-color: rgb(216, 217, 218);
+}
+.titulo{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(236, 131, 61);
+}

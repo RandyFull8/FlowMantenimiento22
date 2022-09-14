@@ -1,0 +1,29 @@
+
+.container{
+    text-align:center
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.center{
+    background:green;
+   display:inline-block
+}
+.fexconte{
+    background-color: rgb(216, 217, 218);
+}
+.titulo{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(236, 131, 61);
+}
+.tocken{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 0, 0);
+}
+.divtk{
+ border-color: rgb(255, 0, 0) rgb(255, 0, 0) rgb(255, 6, 6); }

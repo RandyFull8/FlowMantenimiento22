@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<div class="fexconte d-flex flex-row mb-3 card">
+  <div  class="titulo p-2"><i class="fas fa-angle-double-left"></i>Solicitar<i class="fas fa-angle-double-right"></i></div>
+  <div id="current_date" class="p-2"></div>
+  <div id="HoraActual" class="p-2"></div>
+</div>
+
+  <div class="container">
+<h6  class="left"></h6>
+<h6   class="right"></h6>
+</div>
+<nav></nav>
+
+<form class="rounded mb-0 m-4 p-4 needs-validation novalidate" >
+  <label for="basic-url" class="form-label"><b>Solicitar:</b></label>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-signature"></i>_ </span>
+        <input type="text" class="form-control" placeholder="Nombre solicitante" name="nombreSolicitante" id="txtnombes" [(ngModel)]="serviceModel.nombreSolicitante">
+      </div>
+<br>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-map-marker-alt"></i></span>
+        <select type="text" class="form-control" placeholder="Área" name="area" id="textarea" [(ngModel)]="serviceModel.area" >
+          <option *ngFor="let item of datatable2" value="{{item.nombre}}">{{item.nombre}}</option>
+          </select>
+      </div>
+<br>
+
+
+      <div class="input-group input-group-sm mb-3">
+
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-cogs"></i></span>
+        <select type="text" class="form-control" placeholder="Máquina" name="maquina" id="txtMaquina" [(ngModel)]="serviceModel.maquina" >
+          <option *ngFor="let item of datatable3" value="{{item.nombre}}">{{item.nombre}}</option>
+        </select>
+      </div>
+<br>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-microchip"></i></span>
+        <input type="text" class="form-control" placeholder="Dispositivo"  name="dispositivo" id="txtDispo" [(ngModel)]="serviceModel.dispositivo" >
+      </div>
+<br>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-pen-nib"></i></span>
+        <textarea type="text" class="form-control" placeholder="Descripción" name="descripcionProblema" id="txtDescP"  [(ngModel)]="serviceModel.descripcionProblema" ></textarea>
+      </div>
+      <div class="d-grid gap-2">
+
+
+
+        <!-- <button type="button" class="btn btn-success btn.lg" (click)="onSetData(); onAddSolicitud(solicitud)"><i class="fas fa-paper-plane"></i> Solicitar</button> -->
+        <button
+          type="submit"
+          class="btnenvia btn btn-success btn.lg"
+          (click)="onAddSolicitud(serviceModel)"
+        >
+          <i class="fas fa-paper-plane"></i>
+          Solicitar
+        </button>
+        <br />
+      </div>
+</form>

@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+
+    <div class="top fexconte d-flex flex-row mb-3 card">
+        <div  class="titulo p-2"><i class="fas fa-angle-double-left"></i>Detalles/aceptar<i class="fas fa-angle-double-right"></i></div>
+        <div id="current_date" class="p-2"></div>
+        <div id="HoraActual" class="p-2"></div>
+      </div>
+      
+      <div class="card text-center">
+        <div class="card-body" *ngFor="let item of datatable">
+          <!--aqui-->
+  
+          
+          <p class="card-text">
+            No.:
+            <b style="color: red;">{{ item.idSolicitud }}</b>
+          </p>
+          <p class="card-text">
+            Solicitante:
+            <b>{{ item.nombreSolicitante }}</b>
+          </p>
+          <p class="card-text">
+            Área:
+            <b>{{ item.area }}</b>
+          </p>
+          <p class="card-text">
+            Maquina:
+            <b>{{item.maquina }}</b>
+          </p>
+          <p class="card-text">
+            Dispositivo:
+            <b>{{ item.dispositivo }}</b>
+          </p>
+          <p class="card-text">
+            descripcion del Problema
+            <b>{{ item.descripcionProblema }}</b>
+          </p>
+          <p class="card-text">
+            Fecha de la solicitud:
+            <b>{{ item.fechaSolicitud }}</b>
+          </p>
+          <button
+          type="submit"
+          class="btnenvia btn btn-success btn.lg"
+          (click)="onSetData(item); openModal(template);"
+        >
+          <i class="fas fa-paper-plane"></i>
+          Aceptar esta solicitud
+        </button>
+        </div>
+          
+  
+  <!--modales-->
+  <!--modal para  salida de activo-->
+  <ng-template class="wrapper bg-white" #template>
+    <div class="modal-header">
+      <div class="h6 text-muted text-center pt-2"  *ngFor="let item of datatable"><i class="fa-solid fa-triangle-exclamation triangle"></i>Tomar la solicitud. <b style="color: red;">{{ item.idSolicitud }}</b></div>
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="bsModalRef.hide()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+   <br>
+
+  <form class="rounded mb-0 m-4 p-4 needs-validation novalidate" >
+    <h6 ><i class="fas fa-info-circle"></i> Coloca tú número de nómina para continuar</h6>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-clipboard"></i> </span>
+      <input type="number" class="form-control" placeholder="Coloque su nómina" name="Nomina" id="txtNomina" [(ngModel)]="serviceModel.nomina">
+    </div>
+  </form>
+    
+     
+    <!--inicio-->
+   
+   <!-- <div class="h2 text-center">Creativity</div>-->
+      
+     
+            
+           <button class="btn btn-primary"  (click)="onUpdateSalida(serviceModel); saveSomeThing() ">Confirmar</button>
+          
+ <br>
+  
+    <!--fin-->
+  </ng-template>
+  <!--modal para  salida de activo-->

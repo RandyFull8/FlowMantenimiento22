@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<app-navbar></app-navbar>
+<br><br><br>
+
+<!-- <tr  *ngFor="let item of datatable"> -->
+
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+<ul class="nav nav-tabs" >
+   
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Áreas</a>
+    <ul class="dropdown-menu">
+      <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Mostrar todo</a>
+      <a class="nav-link" id="nav-Extruder-tab" data-bs-toggle="tab" data-bs-target="#nav-Extruder" type="button" role="tab" aria-controls="nav-Extruder" aria-selected="false">Extrusión</a>
+<a class="nav-link" id="nav-Print-tab" data-bs-toggle="tab" data-bs-target="#nav-Print" type="button" role="tab" aria-controls="nav-Print" aria-selected="false">Impresión</a>
+<a class="nav-link" id="nav-Lamin-tab" data-bs-toggle="tab" data-bs-target="#nav-Lamin" type="button" role="tab" aria-controls="nav-Lamin" aria-selected="false">Laminado</a>
+<a class="nav-link" id="nav-Pouch-tab" data-bs-toggle="tab" data-bs-target="#nav-Pouch" type="button" role="tab" aria-controls="nav-Pouch" aria-selected="false">Pouch</a>
+<a class="nav-link" id="nav-Bolse-tab" data-bs-toggle="tab" data-bs-target="#nav-Bolse" type="button" role="tab" aria-controls="nav-Bolse" aria-selected="false">Bolseo</a>
+
+    </ul>
+  </li>
+</ul>
+</div>
+
+</nav><br>
+ 
+
+<div class="tab-content" id="nav-tabContent">
+<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+<!--tarjetas-->
+<div class="page-wrapper" >
+<!-- ******Header****** --> 
+<section class="cards-section text-center"  *ngFor="let item of datatable">
+<div class="container">
+  <div class="card text-center border-dark text-bg-light">
+    <div class="card-header ">
+      {{item.maquina}}/{{item.dispositivo}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{item.area}}</h5>
+      <h6 class="card-title">Solicitado por: {{item.nombreSolicitante}}</h6>
+      <p class="card-text">{{item.descripcionProblema}}</p>
+      <button class="btn btn-warning" (click)="onSetData(item); openModal(template);" >Diagnosticar</button>&nbsp;&nbsp;
+      <button class="btn btn-warning" (click)="onSetData(item);  openModal2(template2);" >Tareas ejecutadas</button>
+    </div>
+    <div class="card-footer text-muted">
+      {{item.fechaSolicitud}}
+    </div>
+  </div>
+
+</div><!--//container-->
+<br>
+</section><!--//cards-section-->
+</div>
+</div>
+<div class="tab-pane fade" id="nav-Extruder" role="tabpanel" aria-labelledby="nav-Extruder-tab" tabindex="0">2</div>
+<div class="tab-pane fade" id="nav-Print" role="tabpanel" aria-labelledby="nav-Print-tab" tabindex="0">3</div>
+<div class="tab-pane fade" id="nav-Lamin" role="tabpanel" aria-labelledby="nav-Lamin-tab" tabindex="0">4</div>
+<div class="tab-pane fade" id="nav-Pouch" role="tabpanel" aria-labelledby="nav-Pouch-tab" tabindex="0">5</div>
+<div class="tab-pane fade" id="nav-Bolse" role="tabpanel" aria-labelledby="nav-Bolse-tab" tabindex="0">5</div>
+</div>
+
+
+  <!--modales-->
+  <!--modal para  salida de activo-->
+  <ng-template class="wrapper bg-white" #template>
+    <br><br><br>
+    <div class="modal-header">
+      <div class="h6 text-muted text-center pt-2" ><i class="fa-solid fa-triangle-exclamation triangle"></i>Diagnoticar. <b [(ngModel)]="serviceModel.idSolicitud" id="mostrarId" name="mostrarId" style="color: red;">{{ serviceModel.idSolicitud }}</b></div>
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="bsModalRef.hide()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+   <br>
+
+  <div class="container">
+<h6  class="left"></h6>
+<h6   class="right"></h6>
+</div>
+
+<form class="rounded mb-0 m-4 p-4 needs-validation novalidate" >
+            
+      <label for="basic-url" class="form-label"><b>Descripción del diagnóstico:</b></label>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-pen-nib"></i></span>
+        <textarea type="text" class="form-control" placeholder="Diagnóstico (descripción)" name="descDiag" id="txtdesDiag" [(ngModel)]="serviceModel.diagnostico"></textarea>
+      </div>
+      <hr>
+      
+<label for="basic-url" class="form-label"><b>Tipo de falla:</b></label>
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="FE">
+    <label class="form-check-label" for="flexCheckDefault">
+        Falla eléctrica
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="FM" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Falla mecánica
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="FN" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Falla neumática 
+    </label>
+  </div>
+
+  
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="FH" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Falla hidráulica
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="CFE" >
+    <label class="form-check-label" for="flexCheckChecked">
+        Falla de energía eléctrica CFE
+    </label>
+  </div>
+  <br>
+      
+</form>
+
+    
+     
+    <!--inicio-->
+   
+   <!-- <div class="h2 text-center">Creativity</div>-->
+      
+     
+            
+   <div class="d-grid gap-2">
+    <!-- <button type="button" class="btn btn-success btn.lg" (click)="onSetData(); onAddSolicitud(solicitud)"><i class="fas fa-paper-plane"></i> Solicitar</button> -->
+    <button type="submit" class="btnenvia btn btn-primary btn.lg" (click)=" onSetData(serviceModel);   onUpdateSalida(serviceModel); saveSomeThing()"
+    >
+      <i class="fas fa-paper-plane"></i>
+      Enviar diagnóstico
+    </button>
+   
+  </div>
+
+  
+    <!--fin-->
+  </ng-template>
+  <!--modal para  salida de activo-->
+
+
+  
+
+
+
+
+
+  
+  <!--modales-->
+  <!--modal para  salida de activo-->
+  <ng-template class="wrapper bg-white" #template2>
+    <br><br><br>
+    <div class="modal-header">
+      <div class="h6 text-muted text-center pt-2" ><i class="fa-solid fa-triangle-exclamation triangle"></i>Tareas. <b [(ngModel)]="serviceModel.idSolicitud" id="mostrarId" name="mostrarId" style="color: red;">{{ serviceModel.idSolicitud }}</b></div>
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="bsModalRef.hide()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+    
+<form class="rounded mb-0 m-4 p-4 needs-validation novalidate "  >
+    <label for="basic-url" class="form-label"><b>Descripción de las tareas:</b></label>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-pen-nib"></i></span>
+      <textarea type="text" class="form-control" placeholder="Tareas (descripción)" id="dc" name="dc" [(ngModel)]="serviceModel.descripcionProblema" required></textarea>
+    </div>
+    <hr>
+    <label for="basic-url" class="form-label"><b>¿Genero paro de maquina?</b></label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1" >
+        No
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        Si
+      </label>
+    </div>
+    
+    <hr>
+    <label for="basic-url" class="form-label"><b>Tiempos:</b></label><br>
+    <label for="basic-url" class="form-label">Tiempo de paro correctivo:</label>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-stopwatch"></i></span>
+        <input type="number" class="form-control" placeholder="Paro correctivo (minutos)" id="pc" name="pc" [(ngModel)]="serviceModel.paroCorrectivo" required>
+      </div>
+      <label for="basic-url" class="form-label">Tiempo de paro operativo:</label>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-stopwatch"></i></span>
+        <input type="number" class="form-control" placeholder="Paro operativo (minutos)" id="pp" name="pp" [(ngModel)]="serviceModel.paroOperativo"required>
+      </div>
+      <label for="basic-url" class="form-label">Tiempo de paro por refacción:</label>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-stopwatch"></i></span>
+        <input type="number" class="form-control" placeholder="Paro por refacción (minutos)"  id="pr"name="pr" [(ngModel)]="serviceModel.paroRefaccion"required>
+      </div>
+
+     
+    
+  
+
+
+
+
+   
+</form>
+    <!--inicio-->
+   
+   <!-- <div class="h2 text-center">Creativity</div>-->
+      
+     
+            
+   <div class="d-grid gap-2">
+    <!-- <button type="button" class="btn btn-success btn.lg" (click)="onSetData(); onAddSolicitud(solicitud)"><i class="fas fa-paper-plane"></i> Solicitar</button> -->
+    <button
+        type="submit"
+        class="btnenvia btn btn-primary btn.lg"
+        (click)=" onSetData(serviceModel);   onUpdateSalida3(serviceModel); saveSomeThing()"
+        
+      >
+      <i class="fa-solid fa-floppy-disk"></i>
+        Guardar/siguiente<i class="fa-solid fa-angle-right"></i>
+      </button>
+   
+  </div>
+
+  
+    <!--fin-->
+  </ng-template>
+  <!--modal para  salida de activo-->
+
+
+  
+</body>
+</html>
