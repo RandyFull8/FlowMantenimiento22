@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class DBConectionService {
   constructor(private http: HttpClient) {}
 
-  urlServices:string="http://172.16.200.160:8082/api/";
+  urlServices:string="http://172.16.200.95:44347/api/";
   //172.16.200.95:8083
 
   getSolicitud(){

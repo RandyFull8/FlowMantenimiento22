@@ -15,7 +15,8 @@ import {  FormsModule } from '@angular/forms';
 import { ViewAceptComponent } from './components/view-acept/view-acept.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SesionComponent } from './components/sesion/sesion.component';
-import { RevisionFinComponent } from './components/revision-fin/revision-fin.component'
+import { RevisionFinComponent } from './components/revision-fin/revision-fin.component';
+import { AdminComponent } from './components/admin/admin.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { RevisionFinComponent } from './components/revision-fin/revision-fin.com
     ViewAceptComponent,
     SesionComponent,
     RevisionFinComponent,
+    AdminComponent,
     
   ],
   imports: [

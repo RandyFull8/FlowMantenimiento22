@@ -9,12 +9,13 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { ViewAceptComponent } from './components/view-acept/view-acept.component';
 import { SesionComponent } from './components/sesion/sesion.component';
 import { RevisionFinComponent } from './components/revision-fin/revision-fin.component';
+import { AdminComponent} from "./components/admin/admin.component";
 
 const routes: Routes = [
-  {
+  {      
     path: '',component: InicioComponent
   },
- 
+
   {
     path: 'Resumen_Solicitudes', component: TomesComponentComponent
   },
@@ -30,7 +31,7 @@ const routes: Routes = [
   {
     path:'Revision_fin',component:FormularioFinalComponent
   },
- 
+
   {
     path:'mecanicos3',component:MecancomaterialComponent
   },
