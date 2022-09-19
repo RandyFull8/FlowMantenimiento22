@@ -12,7 +12,7 @@ import { RevisionFinComponent } from './components/revision-fin/revision-fin.com
 import { AdminComponent} from "./components/admin/admin.component";
 
 const routes: Routes = [
-  {      
+  {
     path: '',component: InicioComponent
   },
 
@@ -40,6 +40,9 @@ const routes: Routes = [
   },
   {
     path:'revision_final/:id',component:RevisionFinComponent
+  },
+  {
+    path:'supervisor',component:AdminComponent
   }
 ];
 

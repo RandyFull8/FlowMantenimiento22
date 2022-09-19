@@ -1,1 +1,245 @@
-<p>admin works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <app-navbar></app-navbar>
+<br><br><br>
+<div>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+      type="button" role="tab" aria-controls="nav-home" aria-selected="true">Filtro de solicitudes</button>
+
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+      type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Agregar Mecanico</button>
+
+      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+      type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Agregar Area</button>
+
+
+      <button class="nav-link" id="nav-machine-tab" data-bs-toggle="tab" data-bs-target="#nav-machine"
+      type="button" role="tab" aria-controls="nav-machine" aria-selected="false">Agregar Maquina</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+<!-- Apartado del filtro de solicitudes -->
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <h6>Solicitudes</h6>
+
+
+      <table class="table caption-top">
+        <caption>Lista de Solicitudes</caption>
+        <thead>
+          <tr>
+            <th scope="col">#Solicitud</th>
+            <th scope="col">Solicitante</th>
+            <th scope="col">Fecha Solicitud</th>
+            <th scope="col">Hora Solicitud</th>
+            <th scope="col">Área</th>
+            <th scope="col">Máquina</th>
+            <th scope="col">Dispositivo</th>
+            <th scope="col">Problema</th>
+            <th scope="col">Nomina Inicial</th>
+            <th scope="col">Mecánico</th>
+            <th scope="col">Inicio</th>
+            <th scope="col">Hora Inicio</th>
+            <th scope="col">Diagnóstico</th>
+            <th scope="col">Falla</th>
+            <th scope="col">Género Paro</th>
+            <th scope="col">Paro Correctivo</th>
+            <th scope="col">Paro Operativo</th>
+            <th scope="col">Paro Refacción</th>
+            <th scope="col">Tiempo Total</th>
+            <th scope="col">Grasa</th>
+            <th scope="col">Material Usado</th>
+            <th scope="col">Cierre</th>
+            <th scope="col">Hora Cierre</th>
+            <th scope="col">Sanitizado</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Firmado</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let item of datatable">
+            <th scope="row">{{item.idSolicitud}}</th>
+            <th scope="row">{{item.nombreSolicitante}}</th>
+            <th scope="row">{{item.fechaSolicitud}}</th>
+            <th scope="row">{{item.horaSolicitud}}</th>
+            <th scope="row">{{item.area}}</th>
+            <th scope="row">{{item.maquina}}</th>
+            <th scope="row">{{item.dispositivo}}</th>
+            <th scope="row">{{item.descripcionProblema}}</th>
+            <th scope="row">{{item.nomina}}</th>
+            <th scope="row">{{item.nombre}}</th>
+            <th scope="row">{{item.fechaInicio}}</th>
+            <th scope="row">{{item.horaInicio}}</th>
+            <th scope="row">{{item.diagnostico}}</th>
+            <th scope="row">{{item.tipoFalla}}</th>
+            <th scope="row">{{item.generoParo}}</th>
+            <th scope="row">{{item.paroCorrectivo}}</th>
+            <th scope="row">{{item.paroOperativo}}</th>
+            <th scope="row">{{item.paroRefaccion}}</th>
+            <th scope="row">{{item.tiempoTotal}}</th>
+            <th scope="row">{{item.grasaUtilizada}}</th>
+            <th scope="row">{{item.refaMateHerra}}</th>
+            <th scope="row">{{item.fechaFinal}}</th>
+            <th scope="row">{{item.horaSolicitud}}</th>
+            <th scope="row">{{item.trabajoSanitizado}}</th>
+            <th scope="row">{{item.estatusActividad}}</th>
+            <th scope="row">{{item.firmaSolicitante}}</th>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+
+
+    </div>
+    <!-- Apartado de agregar y ver mecanico-->
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <h6>Mecánico</h6>
+
+    <div class="row g-3">
+      <div class="col-sm-3">
+
+
+        <input type="text" class="form-control" placeholder="Nómina" aria-label="nomina" [(ngModel)]="serviceModelMecanico.nomina">
+      </div>
+      <div class="col-sm">
+        <input type="text" class="form-control" placeholder="Nombre" aria-label="nombre" [(ngModel)]="serviceModelMecanico.nombre">
+      </div>
+
+      <div class="col-sm">
+        <button class="btn btn-success" type="button" (click)="onAddSolicitudMecanico(serviceModelMecanico)">Agregar</button>
+      </div>
+    </div>
+
+
+      <table class="table caption-top">
+        <caption>Listado de Mecánicos</caption>
+        <thead>
+          <tr>
+            <th scope="col">#Nómina</th>
+            <th scope="col">Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable4">
+            <th scope="row">{{item.nomina}}</th>
+            <td>{{item.nombre}}</td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+
+  </div>
+  <!-- Apartado de agregar y ver area-->
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <h6>Área</h6>
+      <div class="row g-3">
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Nombre" aria-label="nombrearea" [(ngModel)]="serviceModelArea.nombre">
+
+
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-warning" (click)="onAddSolicitud(serviceModelArea)">Agregar</button>
+
+        </div>
+
+      </div>
+
+
+        <table class="table caption-top">
+          <caption>Listado de Áreas</caption>
+
+          <tbody>
+            <tr *ngFor="let item of datatable2">
+
+              <td>{{item.nombre}}</td>
+
+
+            </tr>
+
+          </tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+      <!-- Apartado de agregar y ver maquina-->
+    <div class="tab-pane fade" id="nav-machine" role="tabpanel" aria-labelledby="nav-machine-tab">
+      <h6>Máquina</h6>
+      <div class="row g-3">
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Nombre" aria-label="nombre" [(ngModel)]="serviceModelMaquina.nombre">
+        </div>
+        <div class="col-sm">
+          <!-- <input type="text" class="form-control" placeholder="Área" aria-label="Area">-->
+
+          <select class="form-select" id="autoSizingSelect" [(ngModel)]="serviceModelMaquina.area">
+            <option selected>Seleccione...</option>
+            <option *ngFor="let item of datatable2" value="{{item.nombre}}">{{item.nombre}}</option>
+
+          </select>
+
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-danger" type="button" (click)="onAddSolicitudMaquina(serviceModelMaquina)">Agregar</button>
+        </div>
+      </div>
+
+
+        <table class="table caption-top">
+          <caption>Listado de Máquinas</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Área</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of datatable3">
+
+              <td>{{item.nombre}}</td>
+              <td>{{item.area}}</td>
+
+
+            </tr>
+
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </div>
+</div>
+</body>
+</html>
+
+
